@@ -167,13 +167,10 @@ public class PaintingCubePuzzle
                 cube.CurrentOrientation = cubeOrientationTable[(int)randomMove.Direction].Select(x => orientation[x]).ToArray();
             }
 
-            if (trackedCandidates.Count > 40 || cube.CurrentGrid[cube.CurrentPosition] != null || !IsValid(trackedCandidates, cube.CurrentGrid.ToArray(), cube.CurrentPosition))
-            {
-                prev = null;
-                continue;
-            }
-
             prev = null;
+
+            if (trackedCandidates.Count > 40 || cube.CurrentGrid[cube.CurrentPosition] != null || !IsValid(trackedCandidates, cube.CurrentGrid.ToArray(), cube.CurrentPosition))
+                continue;           
 
             gridCandidates.Add(cube.CurrentGrid.ToArray());
             startingPosCandidates.Add(cube.CurrentPosition);

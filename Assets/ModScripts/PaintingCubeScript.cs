@@ -399,7 +399,7 @@ public class PaintingCubeScript : MonoBehaviour
         string[] split = command.ToUpperInvariant().Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
         yield return null;
 
-        if (new[] { "CB", "COLORBLIND" }.Any(x => x.ContainsIgnoreCase(split[0])))
+        if (new[] { "CB", "COLORBLIND" }.Any(x => x == split[0]))
         {
             cbActive = !cbActive;
             SetCube();
